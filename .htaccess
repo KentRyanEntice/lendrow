@@ -1,0 +1,29 @@
+<Files "cashout.php">
+  Allow from all
+</Files>
+
+<Files "loadcashout.php">
+  Allow from all
+</Files>
+
+<Files "loadcashoutmoney.php">
+  Allow from all
+</Files>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /lendrow/
+	
+	RewriteCond %{THE_REQUEST} \s/([^\s]+)\.php [NC]
+    RewriteRule ^ /%1 [R=301,L]
+	
+	RewriteCond %{THE_REQUEST} \s/([^\s]+)\.html [NC]
+    RewriteRule ^ /%1 [R=301,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-d
+	
+	RewriteCond %{REQUEST_FILENAME}\.php -f
+	
+	RewriteRule ^(.*)$ $1.php [NC,L] 
+
+</IfModule>
