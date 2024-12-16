@@ -1,0 +1,2094 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #0ef, #015f66);
+    font-weight: 400;
+    min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f5f5f5;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25),
+    inset 1px 1px 1px rgba(255, 255, 255, 0.25),
+    inset -1px -1px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25),
+    inset 1px 1px 1px rgba(255, 255, 255, 0.25),
+    inset -1px -1px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.wallet-button {
+	position: absolute;
+	top: 5%;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 90px;
+	color: rgba(255, 255, 255, 0.8);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+	font-size: 25px;
+	font-weight: 600;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 1000;
+	cursor: pointer;
+	user-select: none;
+	opacity: 0;
+	visibility: hidden;
+    transition: all .3s ease;
+}
+
+.wallet-button:hover {
+	color: #0ef;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+	transition: all .3s ease;
+}
+
+.wallet-button a {
+	color: rgba(255, 255, 255, 0.8);
+	text-decoration: none;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+}
+
+.wallet-button a:hover {
+	color: #0ef;
+}
+
+.wallet-button .wallet {
+	position: absolute;
+	top: 0px;
+	left: 30px;
+	width: 60px;
+	font-size: 12px;
+	font-weight: 550;
+	background: #02b4c2;
+	color: #e4e9f7;
+	padding: 8px;
+	align-items: center;
+	text-align: center;
+	border-radius: 5px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.50);
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25),
+	inset 1px 1px 1px rgba(255,255,255,0.25),
+	inset -1px -1px 1px rgba(0,0,0,0.5);
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+	z-index: 120;
+}
+
+.wallet-button:hover .wallet {
+	left: 35px;
+	background: #02b4c2;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.50);
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25),
+	inset 1px 1px 1px rgba(255,255,255,0.25),
+	inset -1px -1px 1px rgba(0,0,0,0.5);
+	opacity: 1;
+	visibility: visible;
+	transition: all .3s ease;
+}
+
+.lend-buttons {
+	position: absolute;
+	top: 80px;
+	left: 10%;
+	width: 40%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2.5%;
+	z-index: 91;
+}
+
+.lend-buttons .lend-form-button {
+	left: 0;
+	width: 100px;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transform: scale(90%);
+	transition: all .3s ease;
+}
+
+.lend-buttons .lend-form-button.active {
+	transform: scale(110%);
+}
+
+.lend-buttons .lend-form-button:hover {
+	color: #0ef;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.lend-buttons .lend-manager-button {
+	right: 0;
+	width: 100px;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transform: scale(90%);
+	transition: all .3s ease;
+}
+
+.lend-buttons .lend-manager-button.active {
+	transform: scale(110%);
+}
+
+.lend-buttons .lend-manager-button:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.red-dot {
+	position: absolute;
+	top: -2.5px;
+	right: -2.5px;
+	width: 12px;
+	height: 12px;
+	background: #fc5353;
+    border-radius: 90px;
+	box-shadow: 1px 2px 2px rgba(0,0,0,0.25),
+		inset 1px 1px 2px rgba(255,255,255,0.25),
+		inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+	
+.lenders-content {
+	position: absolute;
+	top: 75px;
+	left: 10%;
+	width: 80%;
+	height: 85%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: all .3s ease;
+}
+
+.lenders-content .lenders-form {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	opacity: 1;
+	visibility: visible;
+	transition: all .3s ease;
+}
+
+.lenders-content .lenders-form.active {
+	opacity: 0;
+	visibility: hidden;
+}
+	
+.lenders-form .lend-form {
+	position: absolute;
+	width: 320px;
+	height: 450px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 15px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	padding: 10px 10px;
+	margin: 15px 40px;
+	z-index: 98;
+	transform: scale(90%);
+    transition: all .3s ease;
+}
+
+.lend-form .lend-form-info .calculate {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 130px;
+	width: 100%;
+	font-size: 20px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 10px 10px;
+	color: rgba(0, 0, 0, .50);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.calculate .monthly {
+	position: absolute;
+	width: 280px;
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 15px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	padding: 0px 10px;
+	margin: 15px 40px;
+}
+
+.calculate .monthly .inputBox {
+	position: relative;
+	display: flex;
+    margin-bottom: 10px;
+	height: 35px;
+	width: 100%;
+    margin: 25px 0;
+}
+
+.calculate .monthly .inputBox h2 {
+	position: absolute;
+	top: -75%;
+	left: -22%;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+	padding: 10px 0px;
+}
+
+.calculate .monthly .inputBox label {
+	position: absolute;
+	top: 30%;
+	left: -5%;
+	width: 30%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 20px;
+	padding: 10px 0px;
+}
+
+.calculate .monthly .inputBox input {
+	position: relative;
+	top: 30%;
+	left: 22%;
+	width: 70%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	padding: 10px 15px;
+	font-size: 23px;
+	font-weight: 700;
+	color: rgba(0, 0, 0, .60);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+	user-select: none;
+	pointer-events: none;
+}
+
+.lend-input {
+	width: 220px;
+}
+
+.lend-input .inputBox {
+	position: relative;
+	display: flex;
+    margin-bottom: 10px;
+	height: 35px;
+	width: 100%;
+    margin: 25px 0;
+}
+
+.lend-input .inputBox input {
+	position: relative;
+	left: 10%;
+	width: 100%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	padding: 0 25px;
+	font-size: 12px;
+	color: rgba(0, 0, 0, .90);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.lend-input .inputBox input::placeholder {
+	color: rgba(0, 0, 0, .50);
+}
+
+.lend-input .inputBox i {
+	position: absolute;
+	left: -13%;
+	width: 35px;
+	height: 35px;
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.90);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.lend-input .inputBox select {
+	position: relative;
+	left: 10%;
+	width: 100%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	padding: 0 20px;
+	font-size: 12px;
+	color: rgba(0, 0, 0, .50);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+	cursor: pointer;
+}
+
+.lend-input .inputBox select::placeholder {
+	color: rgba(0, 0, 0, .50);
+}
+
+.buttons {
+	position: absolute;
+	left: 0;
+	bottom: 5%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all .3s ease;
+}
+
+.buttons .create {
+	padding: 4px 20px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.buttons .create:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.overlaylendbg {
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 500;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(0);
+	border-radius: 10px;
+    transition: all .3s ease;
+}
+
+.overlaylendbg.active {
+    opacity: 1;
+    pointer-events: all;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.submit-lend {
+	position: absolute;
+	top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(110%);
+	width: 320px;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 15px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	padding: 10px 10px;
+	margin: 0;
+	z-index: 1500;
+	opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+}
+
+.submit-lend.active {
+	top: 50%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.submit-lend h2 {
+	position: absolute;
+	top: 0;
+	height: 60px;
+	width: 100%;
+	font-size: 15px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 10px 10px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.submit-lend p {
+	position: absolute;
+	top: 50%;
+    left: 50%;
+	width: 80%;
+    transform: translate(-50%, -50%) scale(110%);
+	font-size: 13px;
+	font-weight: 700;
+	text-align: center;
+	background: linear-gradient(to right, #02adba, #015f66);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.submit-lend-buttons {
+	position: absolute;
+	left: 0;
+	bottom: 10%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20%;
+	transition: all .3s ease;
+}
+
+.submit-lend-buttons .cancel {
+	width: 30%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.submit-lend-buttons .cancel:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.submit-lend-buttons .lend {
+	width: 30%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.submit-lend-buttons .lend:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.errors {
+	position: absolute;
+	left: -20%;
+	bottom: 5%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.errors p {
+    position: relative;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.errors i {
+    position: relative;
+    font-size: 20px;
+}
+
+.errors .bxs-check-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #02adba, #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.errors .blue {
+	background: linear-gradient(to right, #02adba, #015f66);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.errors .bxs-error-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.errors .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.lenders-content .borrowers-form {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+}
+
+.lenders-content .borrowers-form.active { 
+	opacity: 1;
+	visibility: visible;
+}
+
+.slide-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 420px;
+}
+
+.slide-content {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+	padding: 5px 5px;
+	margin: 30px 40px;
+	overflow: hidden;
+	transition: all .3s ease;
+}
+
+.lenders-empty {
+	position: relative;
+	width: 500px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 10px;
+	color: #fff;
+}
+
+.card {
+	display: flex;
+	margin-right: 10px;
+	width: 290px;
+	border-radius: 15px;
+	background-color: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.profile-pic {
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	width: 180px;
+	height: 180px;
+	transform: scale(80%);
+}
+
+.card-details {
+	height: 420px;
+	transform: scale(75%);
+}
+
+.image-content,
+.card-content {
+	display: flex;
+	flex-direction: column;
+	padding: 10px 15px;
+	font-size: 11px;
+}
+
+.lendername {
+	color: #fff;
+	font-size: 9px;
+	z-index: 90;
+}
+
+.card-content .details {
+	position: relative;
+	display: flex;
+    margin-bottom: 10px;
+	height: 30px;
+    margin: 4px 0;
+}
+
+.details label {
+	position: relative;
+	top: -65px;
+	left: 43%;
+	width: 70%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	padding: 2.5px 20px;
+	font-size: 9px;
+	font-weight: 500;
+}
+
+.details input {
+	position: relative;
+	top: -72.5px;
+	right: -22%;
+	width: 50%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	padding: 0 20px;
+	font-size: 11px;
+	color: rgba(0, 0, 0, .50);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.details input::placeholder {
+	color: rgba(0, 0, 0, .50);
+}
+
+.image-content {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	row-gap: 10px;
+}
+
+.overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height:100%;
+	width: 100%;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	border-radius: 15px 15px 15px 15px;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.card-content {
+	row-gap: 5px;
+}
+
+.card-image {
+	position: relative;
+	height: 130px;
+	width: 130px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	border-radius: 50%;
+	background: #fff;
+	padding: 2px;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+		inset 1px 1px 2px rgba(255,255,255,0.25),
+		inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.card-image .card-img {
+	height: 120px;
+	width: 120px;
+	font-size: 8px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	border: 3px solid #0ef;
+	background: none;
+	background: url('<?php echo $profilePicturePath; ?>') center center;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.card-image .card-img img {
+    max-width: 180%;
+    max-height: 180%;
+}
+
+.applicants {
+	position: absolute;
+	top: 43%;
+	left: 2.5%;
+	width: 95%;
+	height: 230px;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	border-radius: 15px 15px 15px 15px;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.applicants .applicants-form {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.applicants .applicants-form h2 {
+	position: absolute;
+	top: 0;
+	color: rgba(255, 255, 255, .90);
+	width: 100%;
+	padding: 8px 0;
+	display: flex;
+	font-size: 15px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.applicants-content {
+	position: relative;
+	top: 40px;
+	width: 100%;
+	height: 180px;
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	overflow-x: hidden;
+}
+
+.applicants-content .empty {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 10px;
+	color: #fff;
+}
+
+.applicants-content .myborrowers {
+	position: relative;
+	top: 0;
+	left: 2.5%;
+	width: 95%;
+	height: 40px;
+	display: flex;
+	font-size: 8px;
+	padding: 15px 10px;
+	flex-direction: row;
+	align-items: center;
+	text-align: left;
+	border-radius: 5px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.applicants-content .myborrowers .pending {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #ffad33;
+	border-radius: 5px;
+}
+
+.applicants-content .myborrowers .approved {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #0ef;
+	border-radius: 5px;
+}
+
+.applicants-content .myborrowers .rejected {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #fa8282;
+	border-radius: 5px;
+}
+
+.applicants-content .myborrowers .funded {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #5ef75e;
+	border-radius: 5px;
+}
+
+.applicants-content .myborrowers .card-view {
+	position: absolute;
+	right: 5px;
+	transform: scale(90%);
+}
+
+.card-view .view {
+	padding: 5px 10px;
+	background: linear-gradient(to right, #0ef, #015f66);
+    color: #fff;
+    font-size: 10px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.card-view .view:hover {
+	color: #0ef;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.swiper-navBtn {
+	font-size: 10px;
+	font-weight: 800;
+}
+
+.swiper-navBtn:hover {
+	transform: scale(80%);
+	transition: all .3s ease;
+}
+
+.lenders-content .lenders-wallet {
+	position: absolute;
+	right: 0;
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: all .3s ease;
+}
+
+.overlay-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(0);
+    transition: all .3s ease;
+}
+
+.overlay-bg.active {
+    opacity: 1;
+    pointer-events: all;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.apply-card {
+	position: fixed;
+	top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(110%);
+	width: 290px;
+	height: 410px;
+	display: flex;
+	flex-direction: column;
+	border-radius: 15px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	padding: 10px 10px;
+	margin: 0;
+	z-index: 1500;
+	opacity: 0;
+    visibility: hidden;
+	transition: all .3s ease;
+}
+
+.apply-card.active {
+	top: 50%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.applycard-image-content {
+	position: absolute;
+	top: -30px;
+	left: -30px;
+	width: 180px;
+	height: 180px;
+	transform: scale(70%);
+}
+
+.applycard-image-content,
+.applycard-content {
+	display: flex;
+	flex-direction: column;
+	padding: 10px 15px;
+	font-size: 11px;
+}
+
+.borrowername {
+	color: #fff;
+	font-size: 10px;
+	z-index: 99;
+}
+
+.applycard-content .agreement {
+	position: absolute;
+	top: 25%;
+	right: 10%;
+	width: 100px;
+	height: 20px;
+	background: linear-gradient(to right, #0ef, #015f66);
+    color: #fff;
+	font-size: 9px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    cursor: pointer;
+	border-radius: 10px;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	margin: 5px;
+	transition: all .3s ease;
+}
+
+.applycard-content .agreement:hover {
+	color: #0ef;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.applycard-content {
+	position: absolute;
+	top: -50px;
+	right: 0;
+	width: 220px;
+	height: 420px;
+	transform: scale(75%);
+}
+
+.applycard-content .applycard-details {
+	position: relative;
+	display: flex;
+    margin-bottom: 10px;
+	height: 30px;
+}
+
+.applycard-details label {
+	position: relative;
+	left: 15%;
+	width: 85%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	padding: 10px 20px;
+	font-size: 9px;
+	font-weight: 500;
+}
+
+.applycard-details input {
+	position: relative;
+	left: 15%;
+	width: 100%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	padding: 0 15px;
+	font-size: 11px;
+	color: rgba(0, 0, 0, .50);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.applycard-details input::placeholder {
+	color: rgba(0, 0, 0, .50);
+}
+
+.applycard-image-content {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	row-gap: 10px;
+}
+
+.applycard-overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height:100%;
+	width: 100%;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	border-radius: 15px 15px 15px 15px;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.applycard-content {
+	row-gap: 5px;
+}
+
+.applycard-image {
+	position: relative;
+	height: 130px;
+	width: 130px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	border-radius: 50%;
+	background: #fff;
+	padding: 2px;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+		inset 1px 1px 2px rgba(255,255,255,0.25),
+		inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.applycard-image .applycard-img {
+	height: 120px;
+	width: 120px;
+	font-size: 8px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	border: 3px solid #0ef;
+	background: none;
+	background: url('<?php echo $profilePicturePath; ?>') center center;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.applycard-image .applycard-img img {
+    max-width: 180%;
+    max-height: 180%;
+}
+
+.credithistory {
+	position: absolute;
+	bottom: 45px;
+	left: 2.5%;
+	width: 95%;
+	height: 220px;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	border-radius: 15px 15px 15px 15px;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.credithistory .credithistory-form {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.credithistory .credithistory-form h2 {
+	position: absolute;
+	top: 0;
+	color: rgba(255, 255, 255, .90);
+	width: 100%;
+	padding: 8px 30px;
+	display: flex;
+	font-size: 15px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.credithistory-content {
+	position: relative;
+	top: 40px;
+	width: 100%;
+	height: 170px;
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	overflow-x: hidden;
+}
+
+.credithistory-content .empty {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 10px;
+	color: #fff;
+}
+
+.credithistory-content .mycredithistory {
+	position: relative;
+	top: 0;
+	left: 2.5%;
+	width: 95%;
+	height: 40px;
+	display: flex;
+	font-size: 7.5px;
+	padding: 15px 10px;
+	flex-direction: row;
+	align-items: center;
+	text-align: left;
+	border-radius: 5px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	margin-top: 8px;
+	margin-bottom: 10px;
+	gap: 5px;
+}
+
+.mycredithistory .overlaycredit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(0);
+	border-radius: 5px;
+    transition: all .3s ease;
+}
+
+.mycredithistory .overlaycredit.active {
+    opacity: 1;
+    pointer-events: all;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.closedate {
+    position: absolute;
+	top: 50%;
+	left: 10%;
+	transform: translate(-50%, -50%) scale(100%);
+    width: 25px;
+	height: 25px;
+    background: linear-gradient(to right, #fc5353, #b35f5f);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    border-radius: 50%;
+    padding: 10px 10px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25),
+        inset 1px 1px 2px rgba(255, 255, 255, 0.25),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 500;
+	transition: all .3s ease;
+}
+
+.closedate.active {
+	opacity:1;
+	visibility: visible;
+}
+
+.closedate::before,
+.closedate::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 2.5px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 1);
+    transition: all .3s ease;
+}
+
+.closedate::before {
+    transform: rotate(45deg);
+}
+
+.closedate::after {
+    transform: rotate(-45deg);
+}
+
+.closedate:hover::before,
+.closedate:hover::after {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.mycredithistory .mydate {
+	position: absolute;
+	color: rgba(255, 255, 255, 1);
+	top: 50%;
+	left: 55%;
+	transform: translate(-50%, -50%) scale(100%);
+	width: 180px;
+	padding: 5px;
+	display: flex;
+	font-size: 8px;
+	font-weight: 600;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px 5px 5px 5px;
+	background: linear-gradient(to right, #26babd, #0f9194);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	cursor: default;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 500;
+	transition: all .3s ease;
+}
+
+.mycredithistory .mydate.active {
+	opacity:1;
+	visibility: visible;
+}
+
+.mycredithistory .paydate label {
+	width: 25px;
+	height: 25px;
+	font-size: 10px;
+	font-weight: 600;
+	background: linear-gradient(to right, #02adba, #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+	cursor: pointer;
+	z-index: 500;
+}
+
+.mycredithistory .mymonthly {
+	color: rgba(255, 255, 255, 1);
+	width: 35%;
+	padding: 5px;
+	display: flex;
+	font-size: 8px;
+	font-weight: 600;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px 5px 5px 5px;
+	background: linear-gradient(to right, #26babd, #0f9194);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	cursor: default;
+}
+
+.mycredithistory .myterm {
+	color: rgba(255, 255, 255, 1);
+	width: 30%;
+	padding: 5px;
+	display: flex;
+	font-size: 8px;
+	font-weight: 600;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px 5px 5px 5px;
+	background: linear-gradient(to right, #239c9e, #0d8a8c);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	cursor: default;
+}
+
+.mycredithistory .mypaid {
+	position: absolute;
+	color: rgba(255, 255, 255, 1);
+	width: 20%;
+	right: 5px;
+	padding: 5px;
+	display: flex;
+	font-size: 9px;
+	font-weight: 600;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	outline: none;
+	border-radius: 5px 5px 5px 5px;
+	cursor: default;
+	transition: all .3s ease;
+}
+
+.mycredithistory .mypaid p {
+    position: relative;
+    font-size: 9px;
+	font-weight: 600;
+}
+
+.mycredithistory .mypaid i {
+    position: relative;
+    font-size: 20px;
+}
+
+.mycredithistory .mypaid .bxs-check-circle { 
+	font-size: 18px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.mycredithistory .mypaid .blue {
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.mycredithistory .mypaid .bxs-error-circle { 
+	font-size: 18px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.mycredithistory .mypaid .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.apply-card-button {
+	position: absolute;
+	left: 5%;
+	bottom: 3%;
+	width: 90%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: scale(90%);
+	gap: 5%;
+	transition: all .3s ease;
+}
+
+.apply-card-button .close {
+	width: 80px;
+	padding: 5px;
+	background: linear-gradient(to right, #fc7474, #d17562);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.apply-card-button .close:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.apply-card-button .reject {
+	width: 80px;
+	padding: 5px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.apply-card-button .reject:hover {
+	color: #f79988;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.apply-card-button .accept {
+	width: 80px;
+	padding: 5px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.apply-card-button .accept:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.fund-card {
+	position: fixed;
+	top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(100%);
+	width: 290px;
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 15px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	padding: 10px 10px;
+	margin: 0;
+	z-index: 1001;
+	opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+}
+
+.fund-card.active {
+	top: 50%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.fund-card h2 {
+	position: absolute;
+	top: 0;
+	height: 70px;
+	width: 100%;
+	font-size: 20px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 10px 10px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.fund-card .agreement {
+	position: relative;
+	top: 5%;
+	left: 5%;
+	width: 90%;
+}
+
+.fund-card .agreement p {
+	font-size: 12px;
+	text-align: justify;
+	line-height: 2;
+}
+
+.agreement .blue-text {
+	font-size: 12px;
+	font-weight: 600;
+	text-align: justify;
+	line-height: 2;
+	background: linear-gradient(to right, #02adba, #015f66);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.fund-card .agreement .check {
+	position: relative;
+	padding-top: 15px;
+	display: flex;
+	gap: 2px;
+}
+
+.fund-card .agreement label {
+	font-size: 8px;
+	text-align: justify;
+	line-height: 2;
+}
+
+.fund-card-button {
+	position: absolute;
+	left: 0;
+	width: 80%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 10%;
+	transition: all .3s ease;
+}
+
+.fund-card-button .close-fund {
+	width: 80px;
+	padding: 5px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.fund-card-button .close-fund:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.fund-card-button .print {
+	text-decoration: none;
+	width: 80px;
+	padding: 5px;
+	background: linear-gradient(to right, #0ef, #015f66);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.fund-card-button .print:hover {
+	color: #0ef;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+
+.fund-card-button .disburse {
+	width: 80px;
+	padding: 5px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.fund-card-button .disburse:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.overlayprint {
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 1250;
+    opacity: 0;
+	visibility: hidden;
+    pointer-events: none;
+    transition: all .3s ease;
+}
+
+.overlayprint.active {
+    opacity: 1;
+	visibility: visible;
+    pointer-events: all;
+    background: rgba(255, 255, 255, 1);
+	transition: all .3s ease;
+}
+
+.print-card {
+	position: fixed;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(100%);
+	width: 800px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 15px;
+	background: #f5f5f5;
+	padding: 10px 10px;
+	margin: 0;
+	z-index: 1500;
+	opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+}
+
+.print-card.active {
+	opacity: 1;
+    visibility: visible;
+	transition: all .3s ease;
+}
+
+.print-card h2 {
+	position: absolute;
+	top: 0;
+	height: 70px;
+	width: 100%;
+	font-size: 20px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 10px 10px;
+	color: rgba(0, 0, 0, .95);
+}
+
+.print-card .agreement {
+	position: relative;
+	top: -10%;
+	left: 15%;
+	width: 70%;
+}
+
+.print-card .agreement p {
+	font-size: 15px;
+	text-align: justify;
+	line-height: 2;
+}
+
+.print-card .agreement .blue-text {
+	color: rgba(0, 0, 0, 1);
+	font-size: 16px;
+	font-weight: 600;
+	text-align: justify;
+	line-height: 2;
+}
+
+.print-card .agreement .check {
+	position: relative;
+	padding-top: 15px;
+	display: flex;
+	gap: 2px;
+}
+
+.print-card .agreement label {
+	font-size: 8px;
+	text-align: justify;
+	line-height: 2;
+}
+
+.print-card .print-buttons {
+	position: fixed;
+	top: 2.5%;
+	left: -40%;
+	width: 180px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20%;
+	transition: all .3s ease;
+}
+
+.print-buttons .closeprint {
+	width: 30%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.print-buttons .closeprint:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.print-buttons .printnow {
+	width: 30%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.print-buttons .printnow:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+	
+@media screen and (max-width: 768px) {
+	.wallet-button {
+		top: 50px;
+		opacity: 1;
+		visibility: visible;
+	}
+	
+	.wallet-button a {
+		opacity: 1;
+		visibility: visible;
+	}
+	
+	.lend-buttons {
+		transform: scale(90%);
+		width: 80%;
+	}
+	
+	.lenders-content {
+		left: 0;
+		transform: scale(90%);
+		width: 100%;
+	}
+	
+	.lenders-content .borrowers-form {
+		width: 100%;
+		transition: all .3s ease;
+	}
+	
+	.slide-container {
+		width: 420px;
+		transition: all .3s ease;
+	}
+	
+	.lenders-content .lenders-form {
+		width: 100%;
+	}
+	
+	.lenders-content .lenders-form .lend-form {
+		transform: scale(90%);
+	}
+	
+	.lenders-content .lenders-wallet {
+		display: none;
+		top: 50%;
+		transform: translate(-50%, -50%) scale(90%);
+		z-index: 2000;
+	}
+	
+	.errors {
+		transform: scale(80%);
+		font-size: 8px;
+		width: 140%;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.slide-container {
+		left: -8%;
+		width: 420px;
+		transform: scale(98%);
+		transition: all .3s ease;
+	}
+}

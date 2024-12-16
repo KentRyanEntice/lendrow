@@ -1,0 +1,1357 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #0ef, #015f66);
+    font-weight: 400;
+    min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.view-lending-history {
+	width: 120px;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transform: scale(90%);
+	transition: all .3s ease;
+}
+
+.view-lending-history:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.lending-history {
+	position: fixed;
+	top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(100%);
+	width: 1150px;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 2000;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+}
+
+.lending-history.active {
+	top: 50%;
+	opacity: 1;
+	visibility: visible;
+}
+
+.lending-history h2 {
+	position: absolute;
+	top: 10px;
+	font-size: 18px;
+	font-weight: 700;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.lending-history i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 40px;
+	color: #fc92a8;
+	cursor: pointer;
+    transform: rotate(180deg) scale(100%);
+	transition: all .5s ease;
+}
+
+.lending-history i:hover {
+	color: #f26683;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.70);
+	transform: rotate(180deg) scale(90%);
+}
+
+.lending-history .lending-history-content {
+	position: absolute;
+	top: 10%;
+	left: 2.5%;
+	width: 95%;
+	height: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	overflow-x: hidden;
+}
+
+.lending-history-content .lending-border {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.lending-border table {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+th, td {
+	position: relative;
+	border: none;
+	padding: 8px;
+	text-align: left;
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 10px;
+	font-weight: 500;
+	text-align: center;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+th {
+	background-color: #ededed;
+}
+
+tbody td {
+	font-size: 9px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.7);
+}
+
+.paid {
+    color: rgba(0, 128, 0, 0.7);
+}
+
+.unpaid {
+    color: rgba(255, 0, 0, 7);
+}
+
+.pending {
+	color: rgba(255, 100, 0, 1);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f5f5f5;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25),
+    inset 1px 1px 1px rgba(255, 255, 255, 0.25),
+    inset -1px -1px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25),
+    inset 1px 1px 1px rgba(255, 255, 255, 0.25),
+    inset -1px -1px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.wallet-button {
+	position: absolute;
+	top: 5%;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 90px;
+	color: rgba(255, 255, 255, 0.8);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+	font-size: 25px;
+	font-weight: 600;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 1000;
+	cursor: pointer;
+	user-select: none;
+	opacity: 0;
+	visibility: hidden;
+    transition: all .3s ease;
+}
+
+.wallet-button:hover {
+	color: #0ef;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+	transition: all .3s ease;
+}
+
+.wallet-button a {
+	color: rgba(255, 255, 255, 0.8);
+	text-decoration: none;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+}
+
+.wallet-button a:hover {
+	color: #0ef;
+}
+
+.wallet-button .wallet {
+	position: absolute;
+	top: 0px;
+	left: 30px;
+	width: 60px;
+	font-size: 12px;
+	font-weight: 550;
+	background: #02b4c2;
+	color: #e4e9f7;
+	padding: 8px;
+	align-items: center;
+	text-align: center;
+	border-radius: 5px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.50);
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25),
+	inset 1px 1px 1px rgba(255,255,255,0.25),
+	inset -1px -1px 1px rgba(0,0,0,0.5);
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+	z-index: 120;
+}
+
+.wallet-button:hover .wallet {
+	left: 35px;
+	background: #02b4c2;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.50);
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25),
+	inset 1px 1px 1px rgba(255,255,255,0.25),
+	inset -1px -1px 1px rgba(0,0,0,0.5);
+	opacity: 1;
+	visibility: visible;
+	transition: all .3s ease;
+}
+
+.pay-buttons {
+	position: absolute;
+	top: 80px;
+	left: 10%;
+	width: 40%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2.5%;
+	z-index: 91;
+}
+
+.pay-buttons .pay-button {
+	left: 0;
+	width: 100px;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transform: scale(90%);
+	transition: all .3s ease;
+}
+
+.pay-buttons .pay-button.active {
+	transform: scale(110%);
+}
+
+.pay-buttons .pay-button:hover {
+	color: #0ef;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.pay-buttons .collect-button {
+	right: 0;
+	width: 100px;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transform: scale(90%);
+	transition: all .3s ease;
+}
+
+.pay-buttons .collect-button.active {
+	transform: scale(110%);
+}
+
+.pay-buttons .collect-button:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.overlay-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(0);
+    transition: all .3s ease;
+}
+
+.overlay-bg.active {
+    opacity: 1;
+    pointer-events: all;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+	
+.lenders-content {
+	position: absolute;
+	top: 75px;
+	left: 10%;
+	width: 80%;
+	height: 85%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: all .3s ease;
+}
+
+.lenders-content .payment-form {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+}
+
+.lenders-content .payment-form.active { 
+	opacity: 1;
+	visibility: visible;
+}
+
+.slide-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 420px;
+}
+
+.slide-content {
+	padding: 5px 5px;
+	margin: 30px 40px;
+	overflow: hidden;
+	transition: all .3s ease;
+}
+
+.lenders-empty {
+	position: relative;
+	width: 500px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 10px;
+	color: #fff;
+}
+
+.card {
+	display: flex;
+	margin-right: 10px;
+	width: 290px;
+	border-radius: 15px;
+	background-color: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.profile-pic {
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	width: 180px;
+	height: 180px;
+	transform: scale(80%);
+}
+
+.card-details {
+	transform: scale(75%);
+}
+
+.image-content,
+.card-content {
+	display: flex;
+	flex-direction: column;
+	padding: 10px 15px;
+	font-size: 11px;
+}
+
+.lendername {
+	color: #fff;
+	font-size: 9px;
+	z-index: 90;
+}
+
+.card-content .details {
+	position: relative;
+	display: flex;
+    margin-bottom: 10px;
+	height: 30px;
+    margin: 4px 0;
+}
+
+.details label {
+	position: relative;
+	top: -65px;
+	left: 43%;
+	width: 70%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	padding: 2.5px 20px;
+	font-size: 9px;
+	font-weight: 500;
+}
+
+.details input {
+	position: relative;
+	top: -72.5px;
+	right: -22%;
+	width: 50%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	padding: 0 20px;
+	font-size: 11px;
+	color: rgba(0, 0, 0, .50);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.details input::placeholder {
+	color: rgba(0, 0, 0, .50);
+}
+
+.image-content {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	row-gap: 10px;
+}
+
+.overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height:100%;
+	width: 100%;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	border-radius: 15px 15px 15px 15px;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.card-content {
+	row-gap: 5px;
+}
+
+.card-image {
+	position: relative;
+	height: 130px;
+	width: 130px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	border-radius: 50%;
+	background: #fff;
+	padding: 2px;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+		inset 1px 1px 2px rgba(255,255,255,0.25),
+		inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.card-image .card-img {
+	height: 120px;
+	width: 120px;
+	font-size: 8px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	border: 3px solid #0ef;
+	background: none;
+	background: url('<?php echo $profilePicturePath; ?>') center center;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.card-image .card-img img {
+    max-width: 180%;
+    max-height: 180%;
+}
+
+.interest {
+	position: absolute;
+	top: 43%;
+	left: 2.5%;
+	width: 95%;
+	height: 220px;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	border-radius: 15px 15px 15px 15px;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.interest .interest-form {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.interest .interest-form h2 {
+	position: absolute;
+	top: 0;
+	color: rgba(255, 255, 255, .90);
+	width: 100%;
+	padding: 5px 0;
+	display: flex;
+	font-size: 15px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.interest-content {
+	position: relative;
+	top: 35px;
+	width: 98%;
+	height: 180px;
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	overflow-x: hidden;
+}
+
+.interest-content .empty {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 10px;
+	color: #fff;
+}
+
+.mypayment {
+	position: relative;
+	top: 0;
+	left: 1%;
+	width: 98%;
+	height: 35px;
+	display: flex;
+	padding: 5px 5px;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	margin-top: 5px;
+	margin-bottom: 10px;
+	gap: 5px;
+}
+
+.mypayment .paydate label {
+	width: 25px;
+	height: 25px;
+	font-size: 8px;
+	font-weight: 600;
+	background: linear-gradient(to right, #02adba, #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.mypayment .mymonth {
+	color: rgba(255, 255, 255, 1);
+	width: 40%;
+	padding: 5px;
+	display: flex;
+	font-size: 8px;
+	font-weight: 600;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px 5px 5px 5px;
+	background: linear-gradient(to right, #26babd, #0f9194);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	cursor: default;
+}
+
+.mypayment .myinterest {
+	color: rgba(255, 255, 255, 1);
+	width: 30%;
+	padding: 5px;
+	display: flex;
+	font-size: 9px;
+	font-weight: 600;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px 5px 5px 5px;
+	background: linear-gradient(to right, #239c9e, #0d8a8c);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	cursor: default;
+}
+
+.mypayment .mypay {
+	color: rgba(255, 255, 255, 1);
+	width: 20%;
+	padding: 5px;
+	display: flex;
+	font-size: 9px;
+	font-weight: 600;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	outline: none;
+	border-radius: 5px 5px 5px 5px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	cursor: pointer;
+	transition: all .3s ease;
+}
+
+.mypayment .mypay:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.mypayment .mypaid {
+	color: rgba(255, 255, 255, 1);
+	width: 20%;
+	padding: 5px;
+	display: flex;
+	font-size: 9px;
+	font-weight: 600;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	outline: none;
+	border-radius: 5px 5px 5px 5px;
+	cursor: default;
+	transition: all .3s ease;
+}
+
+.mypayment .mypaid p {
+    position: relative;
+    font-size: 9px;
+	font-weight: 600;
+}
+
+.mypayment .mypaid i {
+    position: relative;
+    font-size: 20px;
+}
+
+.mypayment .mypaid .bxs-check-circle { 
+	font-size: 18px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.mypayment .mypaid .blue {
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.mypayment .mypaid .bxs-error-circle { 
+	font-size: 18px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.mypayment .mypaid .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.mypayment2 {
+	position: relative;
+	top: 0;
+	left: 30%;
+	width: 40%;
+	height: 25px;
+	display: flex;
+	font-size: 10px;
+	font-weight: 600;
+	border-radius: 5px;
+	color: rgba(255, 255, 255, .90);
+	padding: 5px;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	outline: none;
+	border-radius: 5px 5px 5px 5px;
+	background: linear-gradient(to right, #239c9e, #0d8a8c);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	cursor: pointer;
+	transition: all .3s ease;
+}
+
+.mypayment2:hover {
+	color: #02b4c2;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.swiper-navBtn {
+	font-size: 10px;
+	font-weight: 800;
+	color: #6e93f7;
+	transition: all .3s ease;
+}
+
+.swiper-navBtn:hover {
+	transform: scale(80%);
+	transition: all .3s ease;
+}
+
+.swiper-navBtn:after,
+.swiper-navBtn:before {
+	font-size: 20px;
+}
+
+.swiper-navBtn-next {
+	right: 0;
+}
+
+.swiper-navBtn-prev {
+	left: 0;
+}
+
+.swiper-pagination {
+	bottom: 0;
+}
+
+.swiper-pagination-bullet {
+	background-color: #6e93f7;
+	opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+	background-color: #4070f4;
+}
+
+.monthly-payment-form {
+	position: absolute;
+	top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(105%);
+	width: 290px;
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	border-radius: 15px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	padding: 10px 10px;
+	margin: 0;
+	z-index: 1500;
+	opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+}
+
+.monthly-payment-form.active {
+	top: 50%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.monthly-payment-form h2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 80px;
+	width: 100%;
+	font-size: 20px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 10px 10px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.monthly-payment-form .inputBox {
+	position: relative;
+	top: 110px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    margin-bottom: 10px;
+	height: 35px;
+	width: 80%;
+    margin: 15px 0;
+}
+
+.monthly-payment-form .inputBox1 label {
+	position: absolute;
+	top: 100px;
+	left: 25px;
+	width: 25px;
+	height: 25px;
+	font-size: 8px;
+	font-weight: 600;
+	background: linear-gradient(to right, #02adba, #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.monthly-payment-form .inputBox label {
+	position: absolute;
+	left: 0;
+	font-size: 9px;
+	color: rgba(0, 0, 0, 0.90);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.monthly-payment-form .inputBox input {
+	position: relative;
+	left: 30%;
+	width: 85%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	padding: 6px 15px;
+	font-size: 9px;
+	color: rgba(0, 0, 0, .60);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.interest-payment-buttons {
+	position: absolute;
+	left: 0;
+	bottom: 5%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20%;
+	transform: scale(100%);
+	transition: all .3s ease;
+}
+
+.interest-payment-buttons .close {
+	width: 30%;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.interest-payment-buttons .close:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.interest-payment-buttons .pay {
+	width: 30%;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.interest-payment-buttons .pay:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.lenders-content .lenders-wallet {
+	position: absolute;
+	right: 0;
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: all .3s ease;
+}
+
+.errors {
+	position: absolute;
+	left: -20%;
+	bottom: 5%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.errors p {
+    position: relative;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.errors i {
+    position: relative;
+    font-size: 20px;
+}
+
+.errors .bxs-check-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #02adba, #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.errors .blue {
+	background: linear-gradient(to right, #02adba, #015f66);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.errors .bxs-error-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+	color: rgba(0, 0, 0, 0.2);
+}
+
+.errors .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.lenders-content .collect-form {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+}
+
+.lenders-content .collect-form.active { 
+	opacity: 1;
+	visibility: visible;
+}
+
+.reports {
+    position: fixed;
+	top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(110%);
+    width: 340px;
+    height: 480px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 15px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 1100;
+	visibility: hidden;
+	opacity: 0;
+    transition: all .3s ease;
+}
+
+.reports.active {
+	top: 50%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.reports h2 {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 50px;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	border-radius: 15px 15px 0px 0px;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px .5px 1px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.financial {
+	position: relative;
+	top: 1%;
+	width: 100%;
+	font-size: 11px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, .60);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #0ef;
+	border-radius: 2px;
+	transform: scale(90%);
+}
+
+.asset {
+	top: 0;
+	left: 0;
+	width: 50%;
+	padding: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #0ef;
+}
+
+.amount {
+	top: 0;
+	right: 0;
+	width: 50%;
+	padding: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #0ef;
+}
+
+.financial-asset {
+	top: 0;
+	left: 0;
+	width: 50%;
+	padding: 5px;
+	font-size: 10px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #0ef;
+}
+
+.financial-amount {
+	top: 0;
+	right: 0;
+	width: 50%;
+	padding: 5px;
+	font-size: 10px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #0ef;
+}
+
+.fund-card-button {
+	position: absolute;
+	left: 0;
+	bottom: 5%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	transition: all .3s ease;
+}
+
+.fund-card-button .close-fund {
+	padding: 4px 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.fund-card-button .close-fund:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+	
+@media screen and (max-width: 768px) {
+	.wallet-button {
+		top: 50px;
+		opacity: 1;
+		visibility: visible;
+	}
+	
+	.wallet-button a {
+		opacity: 1;
+		visibility: visible;
+	}
+	
+	.pay-buttons {
+		transform: scale(90%);
+		width: 80%;
+	}
+
+	.errors {
+		transform: scale(80%);
+		font-size: 8px;
+		width: 140%;
+	}
+	
+	.view-lending-history {
+		opacity: 0;
+		visibility: hidden;
+	}
+	
+	.lenders-content {
+		left: 0;
+		transform: scale(90%);
+		width: 100%;
+	}
+	
+	.monthly-payment-form {
+		transform: translate(-50%, -50%) scale(90%);
+	}
+	
+	.reports {
+		transform: translate(-50%, -50%) scale(90%);
+	}
+	
+	.lenders-content .payment-form {
+		width: 100%;
+	}
+	
+	.lenders-content .collect-form {
+		width: 100%;
+	}
+	
+	.lenders-content .lenders-wallet {
+		display: none;
+		top: 50%;
+		transform: translate(-50%, -50%) scale(90%);
+		z-index: 2000;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.slide-container {
+		left: -8%;
+		width: 420px;
+		transform: scale(98%);
+		transition: all .3s ease;
+	}
+}

@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #0ef, #015f66);
+    font-weight: 400;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+	overflow: hidden;
+}
+
+.lendrow-title {
+	position: absolute;
+	left: 10%;
+	height: 60px;
+	width: 80%;
+	font-size: 30px;
+	font-weight: 800;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0px 0px 10px 10px;
+	background: linear-gradient(to right, #0ef, #015f66);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	animation: reveal .5s forwards;
+}
+
+ @keyframes reveal {
+	0% {
+		opacity: .5;
+		transform: scale(95%);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+		}
+	}
+	
+.lendrow-title p {
+	background: linear-gradient(to right, #02adba, #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	text-shadow: 0px 0px 0px rgba(0,0,0,0.40);
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 540px;
+	transform: scale(85%);
+	transition: all .5s ease;
+}
+
+.wrapper .form {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 5px 5px 4px rgba(0,0,0,0.25),
+	0px 0px 5px rgba(0,0,0,0.5),
+	inset 4px 4px 8px rgba(0,0,0,0.05),
+	8px 8px 6px rgba(0,0,0,0.5);
+}
+
+.wrapper .form h2 {
+	position: relative;
+    font-size: 23px;
+    text-align: center;
+    color: #000;
+	text-shadow: 1px 2px 3px rgba(0,0,0,0.25);
+}
+
+.wrapper .form .inputBox {
+    position: relative;
+    width: 320px;
+	height: 45px;
+    margin: 10px 0;
+	transform: scale(85%);
+}
+
+.inputBox input {
+	position: relative;
+	top: 5%;
+	left: 5%;
+	width: 100%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	padding: 0 20px;
+	font-size: 15px;
+	color: rgba(0, 0, 0, .90);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.inputBox input::placeholder {
+	color: rgba(0, 0, 0, .30);
+}
+
+.inputBox i {
+	position: absolute;
+	left: -45px;
+	width: 50px;
+	height: 50px;
+	font-size: 25px;
+	color: rgba(0, 0, 0, 0.90);
+	display: flex;
+	justify-content: center;
+	padding: 12px 0;
+	border-radius: 50%;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.wrapper .form .btn {
+	position: relative;
+	background: linear-gradient(to right, #0ef, #015f66);
+    color: #fff;
+	left: 10%;
+    width: 80%;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transform: scale(80%);
+	transition: all .5s ease;
+}
+
+.form .btn:hover {
+	color: #0ef;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .5s ease;
+}
+
+.link {
+    text-align: center;
+    font-size: 13px;
+    color: #000;
+    margin: 20px 0;
+}
+
+.link a {
+    color: #0398a3;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all .5s ease;
+}
+
+.link a:hover {
+    color: #015f66;
+	text-decoration: underline;
+}
+
+.sign-up {
+    transform: rotate(7deg);
+}
+
+.wrapper.animated-signin .form.sign-in {
+    animation: signin-flip 1s ease-in-out forwards;
+}
+
+@keyframes signin-flip {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-500px) scale(1.1);
+    }
+
+    100% {
+        transform: translateX(0) rotate(7deg) scale(1);
+    }
+}
+
+.wrapper.animated-signin .form.sign-up {
+    animation: rotatecard .7s ease-in-out forwards;
+    animation-delay: .3s;
+}
+
+@keyframes rotatecard {
+    0% {
+        transform: rotate(7deg);
+    }
+
+    100% {
+        transform: rotate(0);
+        z-index: 1;
+    }
+}
+
+.wrapper.animated-signup .form.sign-up {
+    animation: signup-flip 1s ease-in-out forwards;
+}
+
+@keyframes signup-flip {
+    0% {
+        transform: translateX(0);
+        z-index: 1;
+    }
+
+    50% {
+        transform: translateX(500px) scale(1.1);
+    }
+
+    100% {
+        transform: translateX(0) rotate(7deg) scale(1);
+    }
+}
+
+.wrapper.animated-signup .form.sign-in {
+    transform: rotate(7deg);
+    animation: rotatecard .7s ease-in-out forwards;
+    animation-delay: .3s;
+}
+
+@keyframes rotatecard {
+    0% {
+        transform: rotate(7deg);
+    }
+
+    100% {
+        transform: rotate(0);
+        z-index: 1;
+    }
+}
+
+#toggle {
+	user-select: none;
+	cursor: pointer;
+	transition: all .3s ease;
+}
+
+#toggle.active {
+    color: #fc5353;
+}
+
+#toggle1 {
+	user-select: none;
+	cursor: pointer;
+	transition: all .3s ease;
+}
+
+#toggle1.active {
+    color: #fc5353;
+}
+
+#toggle2 {
+	user-select: none;
+	cursor: pointer;
+	transition: all .3s ease;
+}
+
+#toggle2.active {
+    color: #fc5353;
+}
+
+.errors {
+	position: absolute;
+	left: 0;
+	bottom: 15%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.errors p {
+    position: relative;
+    font-size: 8.5px;
+    font-weight: 700;
+}
+
+.errors i {
+    position: relative;
+    font-size: 20px;
+}
+
+.errors .bxs-check-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #02adba, #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.errors .blue {
+	background: linear-gradient(to right, #02adba, #015f66);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.errors .bxs-error-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.errors .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.copyright {
+	position: fixed;
+	bottom: 2%;
+	right: 2%;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 500;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+	z-index: 999;
+	transition: all .5s ease;
+}
+
+@media screen and (max-width: 768px) {
+	.wrapper {
+		transform: scale(75%);
+	}
+	
+	.errors {
+		left: 1.5%;
+		transform: scale(95%);
+	}
+}
